@@ -2,7 +2,7 @@
 // LOGIN - SERVICIO A (DASHBOARD / ADMIN)
 // ============================================
 
-const API_BASE_URL ='http://172.27.30.205:8000'
+const API_BASE_URL ='http://192.168.0.103:8000'
 
 // ============================================
 // VERIFICAR SI VIENE DE UN LOGOUT DE OTRO SERVICIO

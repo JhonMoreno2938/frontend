@@ -11,7 +11,7 @@ document.getElementById('updateForm').addEventListener('submit', async function(
 
     try {
         // 👇 IP ACTUALIZADA + ENDPOINT CORRECTO (/update-user) 👇
-        const response = await fetch('http://172.27.30.205:8000/api/auth/update-user', {
+        const response = await fetch('http://192.168.0.103:8000/api/auth/update-user', {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
