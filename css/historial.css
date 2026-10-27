@@ -1,0 +1,202 @@
+/* =========================================================
+   HISTORIAL DE ACCESOS · ADMIN · VEREDA TRAVESÍAS
+   ========================================================= */
+/*@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');*/
+
+:root {
+    --verde-950: #062a16;
+    --verde-900: #0b3d20;
+    --verde-800: #0d5229;
+    --verde-700: #0f6b34;
+    --verde-600: #16843f;
+    --verde-500: #1e9a4b;
+    --verde-100: #e4f3e9;
+    --verde-50:  #f3faf5;
+    --oro:       #f2b705;
+    --oro-claro: #ffd54a;
+    --tinta:     #14261b;
+    --gris:      #5d6b62;
+    --borde:     #dce8df;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    color: var(--tinta);
+    background:
+        linear-gradient(180deg, var(--verde-900) 0, var(--verde-800) 230px, var(--verde-50) 230px);
+    padding: 28px 20px 48px;
+}
+
+.container {
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* ---------- Cabecera ---------- */
+.header-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+    color: #fff;
+    margin-bottom: 26px;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+.header-title .logo svg { width: 52px; height: 34px; display: block; }
+.header-title small {
+    display: block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--oro-claro);
+    margin-bottom: 2px;
+}
+
+h2 {
+    margin: 0;
+    font-size: 26px;
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: #fff;
+}
+
+.logout-btn {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 18px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,.35);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    transition: background .2s, border-color .2s, color .2s;
+}
+.logout-btn:hover {
+    background: var(--oro);
+    border-color: var(--oro);
+    color: var(--verde-950);
+}
+
+/* ---------- Tarjeta principal ---------- */
+.panel {
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 24px 50px -24px rgba(6,42,22,.4);
+    overflow: hidden;
+}
+
+/* ---------- Filtros ---------- */
+.filters {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 22px 24px;
+    background: var(--verde-50);
+    border-bottom: 1px solid var(--borde);
+}
+
+.filter-group label {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--verde-800);
+    margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+}
+
+.filter-group input {
+    width: 100%;
+    padding: 11px 13px;
+    font-family: inherit;
+    font-size: 14.5px;
+    border: 1.5px solid var(--borde);
+    border-radius: 10px;
+    background: #fff;
+    color: var(--tinta);
+    transition: border-color .2s, box-shadow .2s;
+}
+.filter-group input:focus {
+    outline: none;
+    border-color: var(--verde-500);
+    box-shadow: 0 0 0 4px rgba(30,154,75,.15);
+}
+
+/* ---------- Tabla ---------- */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    min-width: 640px;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    text-align: left;
+    padding: 14px 20px;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--verde-700);
+}
+thead th:first-child { border-left: 4px solid var(--oro); }
+
+tbody td {
+    padding: 14px 20px;
+    font-size: 14.5px;
+    border-bottom: 1px solid #edf3ef;
+    color: #2c3d32;
+}
+
+tbody tr:nth-child(even) td { background: #fafdfb; }
+tbody tr:hover td { background: var(--verde-100); }
+
+tbody td strong {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--verde-900);
+}
+tbody td strong::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--verde-500);
+}
+
+tbody td:last-child {
+    font-family: 'Consolas', 'SFMono-Regular', monospace;
+    font-size: 13.5px;
+    color: var(--gris);
+}
+
+tbody td[colspan] {
+    padding: 36px 20px;
+    color: var(--gris);
+    font-family: inherit;
+}
+
+@media (max-width: 640px) {
+    body { padding: 20px 16px 36px; }
+    h2 { font-size: 21px; }
+    .filters { padding: 18px 16px; }
+}

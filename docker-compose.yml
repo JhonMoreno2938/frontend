@@ -1,0 +1,7 @@
+services:
+  frontend-web:
+    build: .
+    container_name: frontend-web
+    ports:
+      - "8081:80" # Mapea el puerto 80 de tu servidor al puerto 80 del contenedor
+    restart: always

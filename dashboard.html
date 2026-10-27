@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios · Vereda Travesías</title>
+    <meta name="theme-color" content="#0b3d20">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+    <!-- Barra Superior -->
+    <header class="navbar">
+        <div class="navbar-brand">
+            <span class="logo"><svg viewBox="0 0 48 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                    <circle cx="34" cy="10" r="6" fill="#ffd54a" stroke="none" />
+                    <path d="M2 28 L16 12 L24 20 L30 14 L46 28" stroke="#ffffff" stroke-width="3" />
+                </svg></span>
+            <span><small>Vereda</small>Travesías</span>
+        </div>
+        <div class="navbar-user-section">
+            <span class="user-label">
+                <span class="user-label-text">Hola, </span>
+                <strong id="userDisplay" class="user-highlight"></strong>
+            </span>
+            <button class="btn-logout" onclick="logout()">Salir</button>
+        </div>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main class="main-content">
+        <section class="hero">
+            <span class="kicker">Servicios de la vereda</span>
+            <h1>¿Qué necesita hoy?</h1>
+            <p>Ya entró con su cuenta. Escoja un servicio y lo llevamos de una, sin volver a pedirle la clave.</p>
+        </section>
+
+        <div class="dashboard-container">
+            <div class="cards-grid">
+
+                <!-- =====================================================
+                     CÓMO AGREGAR EL SERVICIO DE UN GRUPO
+                     1. Copie un bloque <a ...> ... </a> completo.
+                     2. Cambie el nombre en irAServicio('...') por la clave
+                        que pusieron en SERVICIOS dentro de js/dashboard.js.
+                     3. Cambie el título y la descripción que les den sus
+                        compañeros. El dibujito de arriba cambia de color solo.
+                     ===================================================== -->
+
+                <a href="#" id="linkViajes" class="nav-card" onclick="irAServicio('servicio_informativo'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Informativo travesias</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes2" class="nav-card" onclick="irAServicio('servicio_rastro_rural'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Rastro rural</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes" class="nav-card" onclick="irAServicio('servicio_encargo'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Encargos travesias</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes2" class="nav-card" onclick="irAServicio('servicio_si_hay_chamba'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Si hay chamba</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes" class="nav-card" onclick="irAServicio('servicio_security'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Security</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes2" class="nav-card" onclick="irAServicio('servicio_incidencias'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Incidencias</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes" class="nav-card" onclick="irAServicio('servicio_noticias'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Noticias comunitarias</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes2" class="nav-card" onclick="irAServicio('servicio_pizarra_movilidad'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Pizarrra movilidad</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+                <a href="#" id="linkViajes" class="nav-card" onclick="irAServicio('servicio_despensa_digital'); return false;">
+                    <div class="card-scene"><svg viewBox="0 0 300 96" preserveAspectRatio="xMidYMax slice"
+                            aria-hidden="true">
+                            <circle cx="240" cy="30" r="14" fill="#f2b705" />
+                            <path d="M0 70 C60 40 120 45 170 62 S260 40 300 55 V96 H0z" fill="#1e9a4b" opacity=".55" />
+                            <path d="M0 84 C80 66 160 74 300 72 V96 H0z" fill="#0f6b34" />
+                        </svg></div>
+                    <div class="card-title">Despensa digital</div>
+                    <div class="card-desc">Aquí va la descripción que dé el grupo.</div>
+                    <span class="card-go">Entrar <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M5 12h14M13 6l6 6-6 6" />
+                        </svg></span>
+                </a>
+
+            </div>
+        </div>
+
+        <p class="footer-note">Vereda Travesías · Proyecto de Redes Comunitarias, Uniamazonia</p>
+    </main>
+
+    <script src="/js/dashboard.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¿Quién ha entrado? · Vereda Travesías</title>
+    <meta name="theme-color" content="#0b3d20">
+    <link rel="stylesheet" href="/css/historial.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- Cabecera: título + botón de cerrar sesión -->
+        <div class="header-section">
+            <div class="header-title">
+                <span class="logo"><svg viewBox="0 0 48 32" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="34" cy="10" r="6" fill="#ffd54a" stroke="none" />
+                        <path d="M2 28 L16 12 L24 20 L30 14 L46 28" stroke="#ffffff" stroke-width="3" />
+                    </svg></span>
+                <div>
+                    <small>Vereda Travesías · Administración</small>
+                    <h2>¿Quién ha entrado?</h2>
+                </div>
+            </div>
+            <button class="logout-btn" onclick="logout()">Salir</button>
+        </div>
+
+        <div class="panel">
+            <!-- Panel de Filtros -->
+            <div class="filters">
+                <div class="filter-group">
+                    <label for="filterUser">Persona</label>
+                    <input type="text" id="filterUser" placeholder="Buscar por usuario..." onkeyup="filterTable()">
+                </div>
+                <div class="filter-group">
+                    <label for="filterYear">Año</label>
+                    <input type="text" id="filterYear" placeholder="Ej. 2026" onkeyup="filterTable()">
+                </div>
+                <div class="filter-group">
+                    <label for="filterStartHour">Desde la hora</label>
+                    <input type="time" id="filterStartHour" onchange="filterTable()">
+                </div>
+                <div class="filter-group">
+                    <label for="filterEndHour">Hasta la hora</label>
+                    <input type="time" id="filterEndHour" onchange="filterTable()">
+                </div>
+            </div>
+
+            <!-- Tabla de Eventos -->
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Usuario</th>
+                            <th>Cuándo entró</th>
+                            <th>Última vez activo</th>
+                            <th>Dirección IP</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsTableBody">
+                        <tr>
+                            <td colspan="4" style="text-align: center;">Buscando los registros...</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="/js/historial.js"></script>
+</body>
+
+</html>

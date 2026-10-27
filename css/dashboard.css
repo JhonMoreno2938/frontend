@@ -1,0 +1,299 @@
+/* =========================================================
+   PANEL DE USUARIO · VEREDA TRAVESÍAS
+   Responsive: escritorio, tablet y móvil
+   ========================================================= */
+/*@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');*/
+
+:root {
+    --verde-950: #062a16;
+    --verde-900: #0b3d20;
+    --verde-800: #0d5229;
+    --verde-700: #0f6b34;
+    --verde-600: #16843f;
+    --verde-500: #1e9a4b;
+    --verde-100: #e4f3e9;
+    --verde-50:  #f3faf5;
+    --oro:       #f2b705;
+    --oro-claro: #ffd54a;
+    --tinta:     #14261b;
+    --gris:      #5d6b62;
+    --borde:     #dce8df;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+html, body { overflow-x: hidden; }
+img, svg { max-width: 100%; }
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    min-height: 100dvh;
+    font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, Arial, sans-serif;
+    color: var(--tinta);
+    background: var(--verde-50);
+}
+
+/* ---------- Barra superior ---------- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 14px 32px;
+    background: linear-gradient(90deg, var(--verde-950), var(--verde-800));
+    color: #fff;
+    box-shadow: 0 6px 20px -10px rgba(6,42,22,.6);
+    border-bottom: 3px solid var(--oro);
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -.01em;
+}
+.navbar-brand .logo { flex-shrink: 0; }
+.navbar-brand .logo svg { width: 46px; height: 30px; display: block; }
+.navbar-brand small {
+    display: block;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+    color: var(--oro-claro);
+}
+
+.navbar-user-section {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-shrink: 0;
+}
+
+.user-label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: #d6ecdd;
+}
+.user-avatar {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.12);
+    border: 2px solid var(--oro);
+    display: grid; place-items: center;
+    flex-shrink: 0;
+}
+.user-avatar svg { width: 18px; height: 18px; stroke: #fff; }
+.user-highlight { color: #fff; font-weight: 700; }
+
+.btn-logout {
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: 10px;
+    border: 1.5px solid rgba(255,255,255,.35);
+    background: transparent;
+    color: #fff;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background .2s, border-color .2s, color .2s;
+}
+.btn-logout:hover {
+    background: var(--oro);
+    border-color: var(--oro);
+    color: var(--verde-950);
+}
+.btn-logout:focus-visible { outline: 3px solid var(--oro); outline-offset: 2px; }
+
+/* ---------- Contenido ---------- */
+.main-content {
+    padding: 0 24px 48px;
+}
+
+.hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 44px 0 28px;
+}
+.hero .kicker {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    color: var(--verde-700);
+    background: var(--verde-100);
+    padding: 6px 12px;
+    border-radius: 999px;
+    margin-bottom: 12px;
+}
+.hero h1 {
+    margin: 0 0 8px;
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 800;
+    letter-spacing: -.02em;
+    color: var(--verde-900);
+}
+.hero p { margin: 0; color: var(--gris); font-size: 15.5px; }
+
+.dashboard-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* ---------- Tarjetas ---------- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr));
+    gap: 22px;
+}
+
+.nav-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    min-width: 0;
+    padding: 26px 24px 22px;
+    background: #fff;
+    border: 1px solid var(--borde);
+    border-radius: 18px;
+    text-decoration: none;
+    color: inherit;
+    overflow: hidden;
+    transition: transform .2s, box-shadow .2s, border-color .2s;
+}
+.nav-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--verde-600), var(--oro));
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform .3s;
+}
+.nav-card:hover {
+    transform: translateY(-4px);
+    border-color: transparent;
+    box-shadow: 0 20px 40px -18px rgba(15,107,52,.45);
+}
+.nav-card:hover::before { transform: scaleX(1); }
+.nav-card:focus-visible { outline: 3px solid var(--oro); outline-offset: 3px; }
+
+.card-scene {
+    margin: -26px -24px 4px;
+    height: 96px;
+    background: #cfe9d6;
+    overflow: hidden;
+}
+.card-scene svg { width: 100%; height: 100%; display: block; }
+.nav-card:nth-child(4n+2) .card-scene { background: #fbeec2; }
+.nav-card:nth-child(4n+3) .card-scene { background: #d8ecf3; }
+.nav-card:nth-child(4n+4) .card-scene { background: #f3e2d3; }
+
+.card-title {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--verde-900);
+    overflow-wrap: anywhere;
+}
+.card-desc {
+    font-size: 14px;
+    color: var(--gris);
+    line-height: 1.5;
+    margin-top: -6px;
+}
+.card-go {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13.5px;
+    font-weight: 700;
+    color: var(--verde-700);
+}
+.card-go svg { width: 16px; height: 16px; transition: transform .2s; }
+.nav-card:hover .card-go svg { transform: translateX(4px); }
+
+/* Imagen opcional si algún grupo quiere usar foto */
+.card-img {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 12px;
+    background: var(--verde-100);
+}
+
+.footer-note {
+    max-width: 1100px;
+    margin: 40px auto 0;
+    text-align: center;
+    font-size: 12.5px;
+    color: #8a9a90;
+}
+
+/* =========================================================
+   RESPONSIVE
+   ========================================================= */
+
+/* ---------- Tablet pequeña: 2 columnas ---------- */
+@media (min-width: 641px) and (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .navbar { padding: 14px 24px; }
+}
+
+/* ---------- Móvil ---------- */
+@media (max-width: 640px) {
+    .navbar {
+        padding: 12px 16px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    .navbar-brand { font-size: 16px; }
+    .navbar-user-section { gap: 10px; margin-left: auto; }
+    .user-label-text { display: none; }
+    .btn-logout { padding: 8px 12px; font-size: 13px; }
+
+    .main-content { padding: 0 16px 36px; }
+    .hero { padding: 28px 0 20px; }
+    .hero p { font-size: 14.5px; }
+
+    .cards-grid { gap: 16px; }
+    .nav-card { padding: 22px 18px 18px; border-radius: 16px; }
+    .card-scene { margin: -22px -18px 4px; height: 84px; }
+    .card-img { height: 120px; }
+}
+
+/* ---------- Pantallas muy angostas ---------- */
+@media (max-width: 360px) {
+    .navbar-brand { font-size: 15px; gap: 8px; }
+    .navbar-brand .logo svg { width: 36px; height: 24px; }
+    .main-content { padding: 0 12px 28px; }
+    .card-title { font-size: 17px; }
+}
+
+/* ---------- Móvil horizontal ---------- */
+@media (max-height: 500px) and (orientation: landscape) {
+    .navbar { position: static; }
+    .hero { padding: 20px 0 16px; }
+}
+
+/* ---------- Accesibilidad: menos movimiento ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .nav-card, .nav-card::before, .card-go svg, .btn-logout { transition: none; }
+    .nav-card:hover { transform: none; }
+}
